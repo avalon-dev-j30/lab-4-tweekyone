@@ -3,6 +3,9 @@ package ru.avalon.java.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 /**
@@ -36,10 +39,7 @@ public final class UdpSender {
      * @return текстовое сообщение.
      */
     private static String prepareMessage() {
-        /*
-         * TODO Реализовать метод prepareMessage класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return "Try to send Message by UdpSender";
     }
 
     /**
@@ -47,11 +47,9 @@ public final class UdpSender {
      *
      * @return адрес конечной точки.
      */
-    private static SocketAddress prepareAddress() {
-        /*
-         * TODO Реализовать метод prepareAddress класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+    private static SocketAddress prepareAddress() throws IOException{
+        InetAddress address = InetAddress.getLocalHost();
+        return new InetSocketAddress(address, 3331);
     }
 
     /**
@@ -61,10 +59,7 @@ public final class UdpSender {
      * @throws IOException
      */
     private static DatagramSocket createSocket() throws IOException {
-        /*
-         * TODO Реализовать метод createSocket класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new DatagramSocket();
     }
 
     /**
@@ -75,10 +70,8 @@ public final class UdpSender {
      * @return экземпляр типа {@link DatagramPacket}.
      */
     private static DatagramPacket pack(String message) {
-        /*
-         * TODO Реализовать метод pack класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        byte[] bytes = message.getBytes();
+        return new DatagramPacket(bytes, bytes.length);
     }
 
 }

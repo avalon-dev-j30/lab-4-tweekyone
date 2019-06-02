@@ -18,7 +18,7 @@ public final class UdpReceiver {
         // 2. Формируем пакет, на основе созданного буфера.
         final DatagramPacket packet = preparePacket(buffer);
         // 3. Выбираем порт, на который ожидается получение сообщения.
-        final int port = 0;
+        final int port = 3332;
         // 4. Формируем сокет, связанный с выбранным портом.
         final DatagramSocket socket = prepareSocket(port);
         // 5. Получаем сообщение.
@@ -35,10 +35,7 @@ public final class UdpReceiver {
      * @return двоичный массив.
      */
     private static byte[] prepareBuffer() {
-        /*
-         * TODO Реализовать метод prepareBuffer класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new byte[1024];
     }
 
     /**
@@ -51,10 +48,7 @@ public final class UdpReceiver {
      * @return экземпляр типа {@link DatagramPacket}.
      */
     private static DatagramPacket preparePacket(byte[] buffer) {
-        /*
-         * TODO Реализовать метод preparePacket класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new DatagramPacket(buffer, buffer.length);
     }
 
     /**
@@ -64,11 +58,8 @@ public final class UdpReceiver {
      *
      * @return сокет.
      */
-    private static DatagramSocket prepareSocket(int port) {
-        /*
-         * TODO Реализовать метод prepareSocket класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+    private static DatagramSocket prepareSocket(int port) throws IOException {
+        return new DatagramSocket(port);
     }
 
     /**
@@ -80,10 +71,7 @@ public final class UdpReceiver {
      * @return строковое сообщение.
      */
     private static String getMessage(DatagramPacket packet) {
-        /*
-         * TODO Реализовать метод getMessage класса UdpReceiver
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new String(packet.getData(), 0, packet.getLength());
     }
 
 }
